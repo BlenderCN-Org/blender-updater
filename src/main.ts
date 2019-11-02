@@ -1,12 +1,5 @@
 const { app, BrowserWindow, dialog } = require("electron");
-
-require("electron-reload")(__dirname);
-
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require("electron-squirrel-startup")) {
-  // eslint-disable-line global-require
-  app.quit();
-}
+const path = require("path");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,17 +12,14 @@ const createWindow = () => {
     height: 215,
     frame: false,
     transparent: false,
-    resizable: false,
-    webPreferences: {
-      nodeIntegration: true
-    }
+    resizable: false
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", () => {
@@ -46,13 +36,7 @@ const createWindow = () => {
 app.on("ready", createWindow);
 
 // Quit when all windows are closed.
-app.on("window-all-closed", () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
+app.on("window-all-closed", () => { });
 
 app.on("activate", () => {
   // On OS X it's common to re-create a window in the app when the
@@ -64,9 +48,3 @@ app.on("activate", () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-
-exports.selectDirectory = function() {
-  return dialog.showOpenDialog(mainWindow, {
-    properties: ["openDirectory"]
-  });
-};
