@@ -1,0 +1,53 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  max-width: 38rem;
+  background-color: transparent;
+}
+
+#main {
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #353535;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  height: 20px;
+  background-color: #585858;
+  -webkit-app-region: drag;
+}
+
+header > button {
+  -webkit-app-region: no-drag;
+}
+
+header > h3 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 0.8em;
+  line-height: 1.5em;
+}
+
+header > button {
+  float: right;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 20px;
+  transition: background-color 0.2s ease;
+  border-style: none;
+}
+
+header > button:focus {
+  outline: none;
+}
+
+header > button:hover {
+  background-color: red;
+}
