@@ -1,53 +1,56 @@
+@import "./styles/inputs.scss";
+@import "./styles/variables";
+@import "./elements/header/header.scss";
+@import "./elements/setup/setup.scss";
+@import "./elements/input/directory.scss";
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   max-width: 38rem;
   background-color: transparent;
+  color: white;
 }
 
 #main {
   border-radius: 5px;
   overflow: hidden;
-  background-color: #353535;
+  background-color: $medium;
   height: 100vh;
   width: 100vw;
 }
 
-header {
-  height: 20px;
-  background-color: #585858;
-  -webkit-app-region: drag;
+main {
+  padding: 10px;
+  > div {
+    opacity: 0;
+    display: none;
+  }
 }
 
-header > button {
-  -webkit-app-region: no-drag;
-}
-
-header > h3 {
-  text-align: center;
+h3 {
+  font-weight: 200;
   margin: 0;
   padding: 0;
+  margin-bottom: 0.4em;
+}
+
+button {
+  background-color: $light;
+  padding: 2px;
   color: white;
-  font-size: 0.8em;
-  line-height: 1.5em;
-}
-
-header > button {
-  float: right;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 20px;
-  transition: background-color 0.2s ease;
   border-style: none;
-}
-
-header > button:focus {
+  border-radius: 2px;
   outline: none;
+
+  > p {
+    padding: 0;
+    margin: 5px;
+  }
 }
 
-header > button:hover {
-  background-color: red;
+.stage-visible {
+  opacity: 1;
+  display: block;
 }

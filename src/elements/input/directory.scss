@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+
+.input-directory-wrapper {
+  position: relative;
+  border: solid 1px $light;
+  background-color: $dark;
+  border-radius: 2px;
+
+  > input {
+    margin: 0;
+    padding: 7px;
+    color: white;
+    font-weight: 100;
+    font-size: 0.8em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: calc(100% - 40px);
+  }
+
+  > img {
+    cursor: pointer;
+    position: absolute;
+    height: 60%;
+    top: 19%;
+    right: 5px;
+  }
+}

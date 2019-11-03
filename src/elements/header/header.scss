@@ -1,0 +1,57 @@
+@import "../../styles/variables";
+
+header {
+  -webkit-app-region: drag;
+  position: relative;
+  height: 20px;
+  background-color: $light;
+
+  > * {
+    -webkit-app-region: no-drag;
+  }
+
+  > img {
+    position: absolute;
+    height: 80%;
+    left: 5px;
+    top: 10%;
+  }
+
+  > button {
+    -webkit-app-region: no-drag;
+    float: right;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 20px;
+    transition: background-color 0.2s ease;
+    border-style: none;
+
+    > img {
+      height: 50%;
+      margin-top: 25%;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: red;
+    }
+  }
+
+  > h3 {
+    width: 100%;
+    -webkit-app-region: drag;
+    pointer-events: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    font-weight: 400;
+  }
+}
