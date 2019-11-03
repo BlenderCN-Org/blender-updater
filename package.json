@@ -54,7 +54,10 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "global": "^4.4.0"
+    "electron-store": "^5.1.0",
+    "global": "^4.4.0",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -78,6 +81,8 @@
     "sass-loader": "^8.0.0",
     "source-map-support": "^0.5.16",
     "svg-inline-loader": "^0.8.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }

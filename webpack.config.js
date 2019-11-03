@@ -6,6 +6,10 @@ const createElectronReloadWebpackPlugin = require('electron-reload-webpack-plugi
 
 const common = {
     mode: "development",
+    output: {
+        path: path.resolve(__dirname + "/build/"),
+        filename: "[name].js"
+    },
     externals: [{
         'electron-config': 'electron-config'
     }],
@@ -14,6 +18,11 @@ const common = {
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -59,6 +68,9 @@ const common = {
             }
         ]
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     stats: {
         colors: true
     },
@@ -70,18 +82,8 @@ module.exports = [
         entry: {
             main: path.resolve(__dirname + "/src/main.ts")
         },
-        output: {
-            path: path.resolve(__dirname + "/build/"),
-            filename: "main.js"
-        },
         plugins: [
-            createElectronReloadWebpackPlugin({
-                // Path to `package.json` file with main field set to main process file path, or just main process file path
-                path: path.join(__dirname, './build/main.js'),
-                // or just `path: './'`,
-                // Other 'electron-connect' options
-                logLevel: 0
-            })()
+
         ],
         target: "electron-main"
     }),
@@ -91,13 +93,17 @@ module.exports = [
         },
         plugins: [
             new CopyPlugin([
-                { from: __dirname + '/src/index.html', to: __dirname + '/build/index.html' }
-            ])
+                { from: __dirname + '/src/index.html', to: __dirname + '/build/index.html' },
+                { from: __dirname + '/src/assets', to: __dirname + '/build/assets' },
+            ]),
+            createElectronReloadWebpackPlugin({
+                // Path to `package.json` file with main field set to main process file path, or just main process file path
+                path: path.join(__dirname, './build/main.js'),
+                // or just `path: './'`,
+                // Other 'electron-connect' options
+                logLevel: 0
+            })()
         ],
-        output: {
-            path: path.resolve(__dirname + "/build/"),
-            filename: "renderer.js"
-        },
         target: "electron-renderer"
     })
 ];
