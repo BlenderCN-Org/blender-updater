@@ -1,0 +1,38 @@
+{
+    "frankfurt": {
+        "mannheim": 85,
+        "wuerzburg": 217,
+        "kassel": 173
+    },
+    "mannheim": {
+        "karlsruhe": 80,
+        "frankfurt": 85
+    },
+    "karlsruhe": {
+        "mannheim": 80,
+        "augsburg": 250
+    },
+    "augsburg": {
+        "karlsruhe": 250,
+        "muenchen": 84
+    },
+    "muenchen": {
+        "augsburg": 84,
+        "nuernberg": 167,
+        "kassel": 502
+    },
+    "nuernberg": {
+        "muenchen": 167,
+        "stuttgart": 183,
+        "wuerzburg": 103
+    },
+    "wuerzburg": {
+        "erfurt": 186,
+        "nuernberg": 103,
+        "frankfurt": 217
+    },
+    "kassel": {
+        "frankfurt": 173,
+        "muenchen": 502
+    }
+}
